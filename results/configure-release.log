@@ -1,0 +1,7 @@
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+
+-- Configuring done (0.1s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/huanyuxun/atlas-codex-20261030/build

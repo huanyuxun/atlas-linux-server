@@ -1,0 +1,32 @@
+test_11_connection_limit_and_recovery (__main__.LimitTests.test_11_connection_limit_and_recovery) ... ok
+test_12_compute_queue_saturation (__main__.LimitTests.test_12_compute_queue_saturation) ... ok
+test_13_first_header_body_and_idle_timeout (__main__.LimitTests.test_13_first_header_body_and_idle_timeout) ... ok
+test_14_business_deadline_and_capacity_recovery (__main__.LimitTests.test_14_business_deadline_and_capacity_recovery) ... ok
+test_15_duplicate_inflight_id_closes_connection (__main__.LimitTests.test_15_duplicate_inflight_id_closes_connection) ... ok
+test_16_slow_reader_backpressure (__main__.LimitTests.test_16_slow_reader_backpressure) ... ok
+test_17_store_entry_and_byte_limits (__main__.LimitTests.test_17_store_entry_and_byte_limits) ... ok
+test_18_graceful_shutdown_drains_admitted_request (__main__.LimitTests.test_18_graceful_shutdown_drains_admitted_request) ... ok
+test_19_shutdown_deadline_cancels_heavy_tasks (__main__.LimitTests.test_19_shutdown_deadline_cancels_heavy_tasks) ... ok
+test_20_invalid_config_fails_fast (__main__.LimitTests.test_20_invalid_config_fails_fast) ... ok
+test_21_soak (__main__.LimitTests.test_21_soak) ... SOAK {"duration_seconds": 120.0, "clients": 32, "completed_requests": 1784024, "minimum_per_client": 55274, "rss_start_bytes": 4493312, "rss_end_bytes": 5017600, "final_metrics": {"connections": 1, "requests": 1784025, "completed": 1784024, "qps": 0.0, "lifetime_qps": 14838.85, "errors": 0, "error_rate": 0.0, "rejected": 0, "timeouts": 0, "inflight": 1, "compute_pending": 1, "send_bytes": 0, "send_messages": 0, "managed_bytes": 272758, "memory_used_bytes": 272758, "memory_budget_bytes": 268435456, "rss_bytes": 5013504, "cpu_percent": 0.0, "log_dropped": 0, "mean_latency_us": 93.993, "p95_latency_us_upper": 512, "p99_latency_us_upper": 512, "uptime_seconds": 120.227}}
+ok
+test_22_per_session_inflight_limit_closes (__main__.LimitTests.test_22_per_session_inflight_limit_closes) ... ok
+test_23_global_inflight_limit_rejects (__main__.LimitTests.test_23_global_inflight_limit_rejects) ... ok
+test_24_global_memory_budget_rejects (__main__.LimitTests.test_24_global_memory_budget_rejects) ... ok
+test_25_write_deadline_reclaims_slow_connection (__main__.LimitTests.test_25_write_deadline_reclaims_slow_connection) ... ok
+test_01_business_flow_and_version_conflict (__main__.NormalTests.test_01_business_flow_and_version_conflict) ... ok
+test_02_repeated_connect_disconnect_and_requests (__main__.NormalTests.test_02_repeated_connect_disconnect_and_requests) ... ok
+test_03_fragmented_header_and_body (__main__.NormalTests.test_03_fragmented_header_and_body) ... ok
+test_04_coalesced_and_pipelined_matching (__main__.NormalTests.test_04_coalesced_and_pipelined_matching) ... ok
+test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) ... ok
+test_06_unknown_type_and_bad_payload_are_request_errors (__main__.NormalTests.test_06_unknown_type_and_bad_payload_are_request_errors) ... ok
+test_07_abrupt_disconnect_and_partial_frames (__main__.NormalTests.test_07_abrupt_disconnect_and_partial_frames) ... ok
+test_08_concurrent_atomic_add (__main__.NormalTests.test_08_concurrent_atomic_add) ... ok
+test_09_compare_and_swap_single_winner (__main__.NormalTests.test_09_compare_and_swap_single_winner) ... ok
+test_10_stats_has_bounded_resource_counters (__main__.NormalTests.test_10_stats_has_bounded_resource_counters) ... ok
+test_10b_signed_add_validation_and_overflow (__main__.NormalTests.test_10b_signed_add_validation_and_overflow) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 122.871s
+
+OK

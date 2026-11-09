@@ -1,0 +1,24 @@
+==================
+WARNING: ThreadSanitizer: unlock of an unlocked mutex (or by a wrong thread) (pid=14053)
+    #0 pthread_mutex_unlock ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1375 (libtsan.so.2+0x57063) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
+    #1 __gthread_mutex_unlock /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:779 (atlas-tsan-clocklock-probe+0x155e) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #2 std::timed_mutex::unlock() /usr/include/c++/13/mutex:281 (atlas-tsan-clocklock-probe+0x15db) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #3 std::unique_lock<std::timed_mutex>::unlock() /usr/include/c++/13/bits/unique_lock.h:200 (atlas-tsan-clocklock-probe+0x1a96) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #4 std::unique_lock<std::timed_mutex>::~unique_lock() /usr/include/c++/13/bits/unique_lock.h:106 (atlas-tsan-clocklock-probe+0x176b) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #5 main results/tsan-clocklock-probe.cpp:10 (atlas-tsan-clocklock-probe+0x13d1) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+
+  Location is stack of main thread.
+
+  Location is global '<null>' at 0x000000000000 ([stack]+0x208a0)
+
+  Mutex M0 (0x7fffffffe8a0) created at:
+    #0 pthread_mutex_unlock ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1375 (libtsan.so.2+0x57063) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
+    #1 __gthread_mutex_unlock /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:779 (atlas-tsan-clocklock-probe+0x155e) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #2 std::timed_mutex::unlock() /usr/include/c++/13/mutex:281 (atlas-tsan-clocklock-probe+0x15db) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #3 std::unique_lock<std::timed_mutex>::unlock() /usr/include/c++/13/bits/unique_lock.h:200 (atlas-tsan-clocklock-probe+0x1a96) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #4 std::unique_lock<std::timed_mutex>::~unique_lock() /usr/include/c++/13/bits/unique_lock.h:106 (atlas-tsan-clocklock-probe+0x176b) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+    #5 main results/tsan-clocklock-probe.cpp:10 (atlas-tsan-clocklock-probe+0x13d1) (BuildId: 12521f5e4e225052ede4577998bf2f33eac3ae24)
+
+SUMMARY: ThreadSanitizer: unlock of an unlocked mutex (or by a wrong thread) /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:779 in __gthread_mutex_unlock
+==================
+ThreadSanitizer: reported 1 warnings

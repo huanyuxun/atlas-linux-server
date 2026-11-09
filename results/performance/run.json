@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "time_utc": "2026-10-30T13:01:08Z",
+  "server_binary": "/home/huanyuxun/atlas-codex-20261030/build/atlas_server",
+  "config": {
+    "address": "127.0.0.1",
+    "port": 0,
+    "io_threads": 4,
+    "compute_threads": 2,
+    "max_frame_bytes": 8192,
+    "max_connections": 8192,
+    "compute_queue": 4096,
+    "max_inflight_global": 8192,
+    "memory_budget_bytes": 268435456,
+    "max_send_bytes": 262144,
+    "idle_timeout_ms": 30000,
+    "business_timeout_ms": 5000,
+    "shutdown_timeout_ms": 3000,
+    "log_level": "warn",
+    "metrics_interval_ms": 1000,
+    "metrics_file": "/home/huanyuxun/atlas-codex-20261030/results/performance/server-metrics.json"
+  },
+  "rlimit_nofile": [
+    32768,
+    1048576
+  ],
+  "rlimit_error": null,
+  "benchmarks": [
+    {
+      "operation": "get",
+      "returncode": 0,
+      "result": "get-matrix.json"
+    },
+    {
+      "operation": "mixed",
+      "returncode": 0,
+      "result": "mixed-matrix.json"
+    }
+  ],
+  "server_pid": 13311,
+  "port": 33267,
+  "idle_result": "idle-connections.json",
+  "server_exit": 0,
+  "shutdown_seconds": 0.0078,
+  "stable": true
+}

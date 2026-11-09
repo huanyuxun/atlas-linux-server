@@ -1,0 +1,5 @@
+integration_exit=0
+performance_exit=0
+asan_exit=0
+tsan_exit=8
+done

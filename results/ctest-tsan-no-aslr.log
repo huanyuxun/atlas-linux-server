@@ -1,0 +1,409 @@
+Test project /home/huanyuxun/atlas-codex-20261030/build-tsan
+    Start 1: unit
+1/2 Test #1: unit .............................***Failed    0.20 sec
+==================
+WARNING: ThreadSanitizer: unlock of an unlocked mutex (or by a wrong thread) (pid=13858)
+    #0 pthread_mutex_unlock ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1375 (libtsan.so.2+0x57063) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
+    #1 __gthread_mutex_unlock /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:779 (atlas_unit+0x40b81) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #2 std::timed_mutex::unlock() /usr/include/c++/13/mutex:281 (atlas_unit+0x40cdf) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #3 std::unique_lock<std::timed_mutex>::unlock() /usr/include/c++/13/bits/unique_lock.h:200 (atlas_unit+0x45cd6) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #4 std::unique_lock<std::timed_mutex>::~unique_lock() /usr/include/c++/13/bits/unique_lock.h:106 (atlas_unit+0x436d7) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #5 atlas::MemoryRepository::put(std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >, unsigned long, atlas::Cancel const&) /home/huanyuxun/atlas-codex-20261030/src/service.cpp:132 (atlas_unit+0x3f05e) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #6 main /home/huanyuxun/atlas-codex-20261030/tests/unit.cpp:40 (atlas_unit+0xc0c7) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+
+  Location is heap block of size 136 at 0x722400000000 allocated by main thread:
+    #0 operator new(unsigned long) ../../../../src/libsanitizer/tsan/tsan_new_delete.cpp:64 (libtsan.so.2+0xa6fae) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
+    #1 std::__detail::_MakeUniq<atlas::MemoryRepository::Impl>::__single_object std::make_unique<atlas::MemoryRepository::Impl, atlas::Config const&, atlas::Budget&>(atlas::Config const&, atlas::Budget&) /usr/include/c++/13/bits/unique_ptr.h:1070 (atlas_unit+0x434e6) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #2 atlas::MemoryRepository::MemoryRepository(atlas::Config const&, atlas::Budget&) /home/huanyuxun/atlas-codex-20261030/src/service.cpp:114 (atlas_unit+0x3ebc9) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #3 main /home/huanyuxun/atlas-codex-20261030/tests/unit.cpp:39 (atlas_unit+0xc04f) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+
+  Mutex M0 (0x722400000020) created at:
+    #0 pthread_mutex_unlock ../../../../src/libsanitizer/tsan/tsan_interceptors_posix.cpp:1375 (libtsan.so.2+0x57063) (BuildId: 2a13a7710e361d06f7babbea53065ca2be93f738)
+    #1 __gthread_mutex_unlock /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:779 (atlas_unit+0x40b81) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #2 std::timed_mutex::unlock() /usr/include/c++/13/mutex:281 (atlas_unit+0x40cdf) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #3 std::unique_lock<std::timed_mutex>::unlock() /usr/include/c++/13/bits/unique_lock.h:200 (atlas_unit+0x45cd6) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #4 std::unique_lock<std::timed_mutex>::~unique_lock() /usr/include/c++/13/bits/unique_lock.h:106 (atlas_unit+0x436d7) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #5 atlas::MemoryRepository::put(std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >, unsigned long, atlas::Cancel const&) /home/huanyuxun/atlas-codex-20261030/src/service.cpp:132 (atlas_unit+0x3f05e) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+    #6 main /home/huanyuxun/atlas-codex-20261030/tests/unit.cpp:40 (atlas_unit+0xc0c7) (BuildId: 3ccb6f978c5d9a8a452ad0d90d03ed0c2997a8be)
+
+SUMMARY: ThreadSanitizer: unlock of an unlocked mutex (or by a wrong thread) /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:779 in __gthread_mutex_unlock
+==================
+
+    Start 2: integration
+2/2 Test #2: integration ......................***Failed    2.16 sec
+test_11_connection_limit_and_recovery (__main__.LimitTests.test_11_connection_limit_and_recovery) ... ok
+test_12_compute_queue_saturation (__main__.LimitTests.test_12_compute_queue_saturation) ... ok
+test_13_first_header_body_and_idle_timeout (__main__.LimitTests.test_13_first_header_body_and_idle_timeout) ... ok
+test_14_business_deadline_and_capacity_recovery (__main__.LimitTests.test_14_business_deadline_and_capacity_recovery) ... ok
+test_15_duplicate_inflight_id_closes_connection (__main__.LimitTests.test_15_duplicate_inflight_id_closes_connection) ... ok
+test_16_slow_reader_backpressure (__main__.LimitTests.test_16_slow_reader_backpressure) ... ERROR
+test_17_store_entry_and_byte_limits (__main__.LimitTests.test_17_store_entry_and_byte_limits) ... ERROR
+test_18_graceful_shutdown_drains_admitted_request (__main__.LimitTests.test_18_graceful_shutdown_drains_admitted_request) ... ERROR
+test_19_shutdown_deadline_cancels_heavy_tasks (__main__.LimitTests.test_19_shutdown_deadline_cancels_heavy_tasks) ... ok
+test_20_invalid_config_fails_fast (__main__.LimitTests.test_20_invalid_config_fails_fast) ... ok
+test_21_soak (__main__.LimitTests.test_21_soak) ... skipped 'use --soak-seconds for sustained concurrency test'
+test_22_per_session_inflight_limit_closes (__main__.LimitTests.test_22_per_session_inflight_limit_closes) ... ok
+test_23_global_inflight_limit_rejects (__main__.LimitTests.test_23_global_inflight_limit_rejects) ... ok
+test_24_global_memory_budget_rejects (__main__.LimitTests.test_24_global_memory_budget_rejects) ... ok
+test_25_write_deadline_reclaims_slow_connection (__main__.LimitTests.test_25_write_deadline_reclaims_slow_connection) ... ERROR
+test_01_business_flow_and_version_conflict (__main__.NormalTests.test_01_business_flow_and_version_conflict) ... ERROR
+test_02_repeated_connect_disconnect_and_requests (__main__.NormalTests.test_02_repeated_connect_disconnect_and_requests) ... ERROR
+test_03_fragmented_header_and_body (__main__.NormalTests.test_03_fragmented_header_and_body) ... ERROR
+test_04_coalesced_and_pipelined_matching (__main__.NormalTests.test_04_coalesced_and_pipelined_matching) ... ERROR
+test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) ... 
+  test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='00000000') ... ERROR
+  test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='00000009') ... ERROR
+  test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='ffffffff') ... ERROR
+  test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='0000000a02060000000000000001') ... ERROR
+test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) ... ERROR
+test_06_unknown_type_and_bad_payload_are_request_errors (__main__.NormalTests.test_06_unknown_type_and_bad_payload_are_request_errors) ... ERROR
+test_07_abrupt_disconnect_and_partial_frames (__main__.NormalTests.test_07_abrupt_disconnect_and_partial_frames) ... ERROR
+test_08_concurrent_atomic_add (__main__.NormalTests.test_08_concurrent_atomic_add) ... ERROR
+test_09_compare_and_swap_single_winner (__main__.NormalTests.test_09_compare_and_swap_single_winner) ... ERROR
+test_10_stats_has_bounded_resource_counters (__main__.NormalTests.test_10_stats_has_bounded_resource_counters) ... ERROR
+test_10b_signed_add_validation_and_overflow (__main__.NormalTests.test_10b_signed_add_validation_and_overflow) ... ERROR
+
+======================================================================
+ERROR: test_16_slow_reader_backpressure (__main__.LimitTests.test_16_slow_reader_backpressure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 312, in test_16_slow_reader_backpressure
+    self.assertEqual(client.call(PUT, put_payload("large", b"x" * 60000)).status, OK)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 100, in call
+    response = receive(self.sock)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 75, in receive
+    length = struct.unpack("!I", recv_exact(sock, 4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 69, in recv_exact
+    raise EOFError("peer closed connection")
+EOFError: peer closed connection
+
+======================================================================
+ERROR: test_17_store_entry_and_byte_limits (__main__.LimitTests.test_17_store_entry_and_byte_limits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 327, in test_17_store_entry_and_byte_limits
+    self.assertEqual(client.call(PUT, put_payload("a", b"x")).status, OK)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 100, in call
+    response = receive(self.sock)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 75, in receive
+    length = struct.unpack("!I", recv_exact(sock, 4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 69, in recv_exact
+    raise EOFError("peer closed connection")
+EOFError: peer closed connection
+
+======================================================================
+ERROR: test_18_graceful_shutdown_drains_admitted_request (__main__.LimitTests.test_18_graceful_shutdown_drains_admitted_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 344, in test_18_graceful_shutdown_drains_admitted_request
+    if control.call(GET, key_payload("shutdown")).status == OK:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 100, in call
+    response = receive(self.sock)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 75, in receive
+    length = struct.unpack("!I", recv_exact(sock, 4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 69, in recv_exact
+    raise EOFError("peer closed connection")
+EOFError: peer closed connection
+
+======================================================================
+ERROR: test_25_write_deadline_reclaims_slow_connection (__main__.LimitTests.test_25_write_deadline_reclaims_slow_connection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 405, in test_25_write_deadline_reclaims_slow_connection
+    self.assertEqual(client.call(PUT, put_payload("large", b"x" * 60000)).status, OK)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 100, in call
+    response = receive(self.sock)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 75, in receive
+    length = struct.unpack("!I", recv_exact(sock, 4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 69, in recv_exact
+    raise EOFError("peer closed connection")
+EOFError: peer closed connection
+
+======================================================================
+ERROR: test_01_business_flow_and_version_conflict (__main__.NormalTests.test_01_business_flow_and_version_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 126, in test_01_business_flow_and_version_conflict
+    response = client.call(PUT, put_payload("flow", b"binary\0value\xff"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 100, in call
+    response = receive(self.sock)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 75, in receive
+    length = struct.unpack("!I", recv_exact(sock, 4))[0]
+                                 ^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 69, in recv_exact
+    raise EOFError("peer closed connection")
+EOFError: peer closed connection
+
+======================================================================
+ERROR: test_02_repeated_connect_disconnect_and_requests (__main__.NormalTests.test_02_repeated_connect_disconnect_and_requests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 142, in test_02_repeated_connect_disconnect_and_requests
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_03_fragmented_header_and_body (__main__.NormalTests.test_03_fragmented_header_and_body)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 150, in test_03_fragmented_header_and_body
+    with self.server.raw() as sock:
+         ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_04_coalesced_and_pipelined_matching (__main__.NormalTests.test_04_coalesced_and_pipelined_matching)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 159, in test_04_coalesced_and_pipelined_matching
+    with self.server.raw() as sock:
+         ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='00000000')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 170, in test_05_invalid_lengths_and_version
+    with self.subTest(packet=packet.hex()), self.server.raw() as sock:
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='00000009')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 170, in test_05_invalid_lengths_and_version
+    with self.subTest(packet=packet.hex()), self.server.raw() as sock:
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='ffffffff')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 170, in test_05_invalid_lengths_and_version
+    with self.subTest(packet=packet.hex()), self.server.raw() as sock:
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version) (packet='0000000a02060000000000000001')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 170, in test_05_invalid_lengths_and_version
+    with self.subTest(packet=packet.hex()), self.server.raw() as sock:
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_05_invalid_lengths_and_version (__main__.NormalTests.test_05_invalid_lengths_and_version)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 173, in test_05_invalid_lengths_and_version
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_06_unknown_type_and_bad_payload_are_request_errors (__main__.NormalTests.test_06_unknown_type_and_bad_payload_are_request_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 177, in test_06_unknown_type_and_bad_payload_are_request_errors
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_07_abrupt_disconnect_and_partial_frames (__main__.NormalTests.test_07_abrupt_disconnect_and_partial_frames)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 189, in test_07_abrupt_disconnect_and_partial_frames
+    sock = self.server.raw()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 71, in raw
+    return socket.create_connection(("127.0.0.1", self.port), timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_08_concurrent_atomic_add (__main__.NormalTests.test_08_concurrent_atomic_add)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 200, in test_08_concurrent_atomic_add
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_09_compare_and_swap_single_winner (__main__.NormalTests.test_09_compare_and_swap_single_winner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 216, in test_09_compare_and_swap_single_winner
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_10_stats_has_bounded_resource_counters (__main__.NormalTests.test_10_stats_has_bounded_resource_counters)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 231, in test_10_stats_has_bounded_resource_counters
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+======================================================================
+ERROR: test_10b_signed_add_validation_and_overflow (__main__.NormalTests.test_10b_signed_add_validation_and_overflow)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 239, in test_10b_signed_add_validation_and_overflow
+    with self.server.connect() as client:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 68, in connect
+    return Client(port=self.port, timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tools/client.py", line 83, in __init__
+    self.sock = socket.create_connection((host, port), timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "/usr/lib/python3.12/socket.py", line 837, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+----------------------------------------------------------------------
+Ran 26 tests in 2.113s
+
+FAILED (errors=19, skipped=1)
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   2.36 sec
+
+The following tests FAILED:
+	  1 - unit (Failed)
+	  2 - integration (Failed)
+Errors while running CTest

@@ -1,0 +1,2 @@
+READY 34767
+FINAL {"connections":0,"requests":130,"completed":130,"qps":41.674,"lifetime_qps":246.925,"errors":0,"error_rate":0.000,"rejected":0,"timeouts":1,"inflight":0,"compute_pending":0,"send_bytes":0,"send_messages":0,"managed_bytes":60133,"memory_used_bytes":60133,"memory_budget_bytes":268435456,"rss_bytes":5607424,"cpu_percent":0.000,"log_dropped":0,"mean_latency_us":544.838,"p95_latency_us_upper":4096,"p99_latency_us_upper":4096,"uptime_seconds":0.526}

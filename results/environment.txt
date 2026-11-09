@@ -1,0 +1,9 @@
+Linux huanyuxun 6.8.0-146-generic #146-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep  3 16:12:30 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+cmake version 3.28.3
+libboost-dev:amd64	1.83.0.1ubuntu2
+Python 3.12.3
+2
+               总计        已用        空闲        共享   缓冲/缓存        可用
+内存：          3868        1264         926          13        1943        2603
+交换：          3867           0        3867

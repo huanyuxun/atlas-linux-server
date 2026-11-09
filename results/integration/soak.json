@@ -1,0 +1,33 @@
+{
+  "duration_seconds": 120.0,
+  "clients": 32,
+  "completed_requests": 1784024,
+  "minimum_per_client": 55274,
+  "rss_start_bytes": 4493312,
+  "rss_end_bytes": 5017600,
+  "final_metrics": {
+    "connections": 1,
+    "requests": 1784025,
+    "completed": 1784024,
+    "qps": 0.0,
+    "lifetime_qps": 14838.85,
+    "errors": 0,
+    "error_rate": 0.0,
+    "rejected": 0,
+    "timeouts": 0,
+    "inflight": 1,
+    "compute_pending": 1,
+    "send_bytes": 0,
+    "send_messages": 0,
+    "managed_bytes": 272758,
+    "memory_used_bytes": 272758,
+    "memory_budget_bytes": 268435456,
+    "rss_bytes": 5013504,
+    "cpu_percent": 0.0,
+    "log_dropped": 0,
+    "mean_latency_us": 93.993,
+    "p95_latency_us_upper": 512,
+    "p99_latency_us_upper": 512,
+    "uptime_seconds": 120.227
+  }
+}

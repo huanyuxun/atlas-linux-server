@@ -1,0 +1,8 @@
+/build*/
+__pycache__/
+*.pyc
+*.log
+# Preserve the measured validation evidence linked by docs/RESULTS.md.
+!/results/**/*.log
+# Internal implementation coordination; public-facing design is ARCHITECTURE.md.
+/docs/CONTRACT.md

@@ -1,0 +1,15 @@
+{
+  "connections_requested": 4096,
+  "hold_seconds": 5,
+  "connection_setup_seconds": 0.5985,
+  "total_seconds": 5.8504,
+  "counts": {
+    "connections_opened": 4096,
+    "initial_health_success": 4096,
+    "final_health_success": 4096
+  },
+  "server_idle_cpu_percent_one_core_100": 0.2,
+  "server_rss_peak_bytes": 17956864,
+  "error_examples": [],
+  "stable": true
+}

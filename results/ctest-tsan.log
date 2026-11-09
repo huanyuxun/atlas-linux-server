@@ -1,0 +1,229 @@
+Test project /home/huanyuxun/atlas-codex-20261030/build-tsan
+    Start 1: unit
+1/2 Test #1: unit .............................***Failed    0.03 sec
+FATAL: ThreadSanitizer: unexpected memory mapping 0x6451534de000-0x6451534e8000
+
+    Start 2: integration
+2/2 Test #2: integration ......................***Failed    0.71 sec
+test_11_connection_limit_and_recovery (__main__.LimitTests.test_11_connection_limit_and_recovery) ... ok
+test_12_compute_queue_saturation (__main__.LimitTests.test_12_compute_queue_saturation) ... ERROR
+test_13_first_header_body_and_idle_timeout (__main__.LimitTests.test_13_first_header_body_and_idle_timeout) ... ERROR
+test_14_business_deadline_and_capacity_recovery (__main__.LimitTests.test_14_business_deadline_and_capacity_recovery) ... ERROR
+test_15_duplicate_inflight_id_closes_connection (__main__.LimitTests.test_15_duplicate_inflight_id_closes_connection) ... ERROR
+test_16_slow_reader_backpressure (__main__.LimitTests.test_16_slow_reader_backpressure) ... ERROR
+test_17_store_entry_and_byte_limits (__main__.LimitTests.test_17_store_entry_and_byte_limits) ... ERROR
+test_18_graceful_shutdown_drains_admitted_request (__main__.LimitTests.test_18_graceful_shutdown_drains_admitted_request) ... ERROR
+test_19_shutdown_deadline_cancels_heavy_tasks (__main__.LimitTests.test_19_shutdown_deadline_cancels_heavy_tasks) ... ERROR
+test_20_invalid_config_fails_fast (__main__.LimitTests.test_20_invalid_config_fails_fast) ... ok
+test_21_soak (__main__.LimitTests.test_21_soak) ... skipped 'use --soak-seconds for sustained concurrency test'
+test_22_per_session_inflight_limit_closes (__main__.LimitTests.test_22_per_session_inflight_limit_closes) ... ok
+test_23_global_inflight_limit_rejects (__main__.LimitTests.test_23_global_inflight_limit_rejects) ... ok
+test_24_global_memory_budget_rejects (__main__.LimitTests.test_24_global_memory_budget_rejects) ... ERROR
+test_25_write_deadline_reclaims_slow_connection (__main__.LimitTests.test_25_write_deadline_reclaims_slow_connection) ... ERROR
+setUpClass (__main__.NormalTests) ... ERROR
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-52rdprn3'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-gwxdqif5'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-gap8cd3q'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-cx7qq9l8'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-2b1dx3ka'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-ymg_6pte'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-qx4cyzvg'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-ekif_sbj'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-bitkzmnf'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-vwtmrnlf'>
+  _warnings.warn(warn_message, ResourceWarning)
+/usr/lib/python3.12/tempfile.py:1075: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/atlas-test-qbbmbw88'>
+  _warnings.warn(warn_message, ResourceWarning)
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-gwxdqif5/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-gwxdqif5/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-gap8cd3q/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-gap8cd3q/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-cx7qq9l8/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-cx7qq9l8/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-2b1dx3ka/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-2b1dx3ka/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-ymg_6pte/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-ymg_6pte/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-qx4cyzvg/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-qx4cyzvg/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-ekif_sbj/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-ekif_sbj/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-bitkzmnf/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-bitkzmnf/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-vwtmrnlf/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-vwtmrnlf/stderr.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-qbbmbw88/stdout.log' mode='wb' closefd=True>
+<frozen importlib._bootstrap_external>:753: ResourceWarning: unclosed file <_io.FileIO name='/tmp/atlas-test-qbbmbw88/stderr.log' mode='wb' closefd=True>
+/usr/lib/python3.12/unittest/suite.py:176: ResourceWarning: unclosed file <_io.BufferedWriter name='/tmp/atlas-test-52rdprn3/stdout.log'>
+  self._createClassOrModuleLevelException(result, e,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/unittest/suite.py:176: ResourceWarning: unclosed file <_io.BufferedWriter name='/tmp/atlas-test-52rdprn3/stderr.log'>
+  self._createClassOrModuleLevelException(result, e,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+
+======================================================================
+ERROR: test_12_compute_queue_saturation (__main__.LimitTests.test_12_compute_queue_saturation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 268, in test_12_compute_queue_saturation
+    with Server(compute_threads=1, compute_queue=1, max_inflight_per_session=128,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x5a5538cbd000-0x5a5538ccb000
+
+
+======================================================================
+ERROR: test_13_first_header_body_and_idle_timeout (__main__.LimitTests.test_13_first_header_body_and_idle_timeout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 282, in test_13_first_header_body_and_idle_timeout
+    with Server(connect_timeout_ms=100, read_timeout_ms=100, idle_timeout_ms=100) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x744a16e72000-0x744a17300000
+
+
+======================================================================
+ERROR: test_14_business_deadline_and_capacity_recovery (__main__.LimitTests.test_14_business_deadline_and_capacity_recovery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 293, in test_14_business_deadline_and_capacity_recovery
+    with Server(business_timeout_ms=1, compute_threads=1) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x7768ad472000-0x7768ad900000
+
+
+======================================================================
+ERROR: test_15_duplicate_inflight_id_closes_connection (__main__.LimitTests.test_15_duplicate_inflight_id_closes_connection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 303, in test_15_duplicate_inflight_id_closes_connection
+    with Server(business_timeout_ms=500) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x5ca198ae1000-0x5ca198aef000
+
+
+======================================================================
+ERROR: test_16_slow_reader_backpressure (__main__.LimitTests.test_16_slow_reader_backpressure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 309, in test_16_slow_reader_backpressure
+    with Server(max_send_bytes=65536, max_send_messages=4, max_inflight_per_session=256,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x5cccee9fb000-0x5ccceea09000
+
+
+======================================================================
+ERROR: test_17_store_entry_and_byte_limits (__main__.LimitTests.test_17_store_entry_and_byte_limits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 325, in test_17_store_entry_and_byte_limits
+    with Server(store_entries=2, store_bytes=4096) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x63cb651f9000-0x63cb65207000
+
+
+======================================================================
+ERROR: test_18_graceful_shutdown_drains_admitted_request (__main__.LimitTests.test_18_graceful_shutdown_drains_admitted_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 336, in test_18_graceful_shutdown_drains_admitted_request
+    with Server(shutdown_timeout_ms=2000, business_timeout_ms=1500) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x60097a70c000-0x60097a71a000
+
+
+======================================================================
+ERROR: test_19_shutdown_deadline_cancels_heavy_tasks (__main__.LimitTests.test_19_shutdown_deadline_cancels_heavy_tasks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 357, in test_19_shutdown_deadline_cancels_heavy_tasks
+    with Server(shutdown_timeout_ms=100, business_timeout_ms=10000,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x6488237d9000-0x6488237e7000
+
+
+======================================================================
+ERROR: test_24_global_memory_budget_rejects (__main__.LimitTests.test_24_global_memory_budget_rejects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 393, in test_24_global_memory_budget_rejects
+    with Server(max_frame_bytes=4096, memory_budget_bytes=12000) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x5b6e1c258000-0x5b6e1c266000
+
+
+======================================================================
+ERROR: test_25_write_deadline_reclaims_slow_connection (__main__.LimitTests.test_25_write_deadline_reclaims_slow_connection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 401, in test_25_write_deadline_reclaims_slow_connection
+    with Server(max_send_bytes=16777216, max_send_messages=512,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x63a215442000-0x63a215450000
+
+
+======================================================================
+ERROR: setUpClass (__main__.NormalTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 118, in setUpClass
+    cls.server = Server()
+                 ^^^^^^^^
+  File "/home/huanyuxun/atlas-codex-20261030/tests/integration.py", line 57, in __init__
+    raise RuntimeError(f"startup failed: {self.diagnostics()}")
+RuntimeError: startup failed: 
+FATAL: ThreadSanitizer: unexpected memory mapping 0x60d2882d0000-0x60d2882de000
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.665s
+
+FAILED (errors=11, skipped=1)
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.74 sec
+
+The following tests FAILED:
+	  1 - unit (Failed)
+	  2 - integration (Failed)
+Errors while running CTest

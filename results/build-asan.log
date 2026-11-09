@@ -1,0 +1,13 @@
+[ 20%] Building CXX object CMakeFiles/atlas_core.dir/src/service.cpp.o
+[ 20%] Building CXX object CMakeFiles/atlas_core.dir/src/core.cpp.o
+[ 30%] Building CXX object CMakeFiles/atlas_core.dir/src/protocol.cpp.o
+[ 40%] Linking CXX static library libatlas_core.a
+[ 40%] Built target atlas_core
+[ 60%] Building CXX object CMakeFiles/atlas_unit.dir/tests/unit.cpp.o
+[ 60%] Building CXX object CMakeFiles/atlas_server.dir/src/main.cpp.o
+[ 70%] Linking CXX executable atlas_unit
+[ 70%] Built target atlas_unit
+[ 80%] Building CXX object CMakeFiles/atlas_server.dir/src/server.cpp.o
+[ 90%] Building CXX object CMakeFiles/atlas_server.dir/src/session.cpp.o
+[100%] Linking CXX executable atlas_server
+[100%] Built target atlas_server

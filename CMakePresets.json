@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {"name":"release","generator":"Unix Makefiles","binaryDir":"${sourceDir}/build","cacheVariables":{"CMAKE_BUILD_TYPE":"Release"}},
+    {"name":"asan","inherits":"release","binaryDir":"${sourceDir}/build-asan","cacheVariables":{"CMAKE_BUILD_TYPE":"Debug","ATLAS_SANITIZER":"address,undefined"}},
+    {"name":"tsan","inherits":"release","binaryDir":"${sourceDir}/build-tsan","cacheVariables":{"CMAKE_BUILD_TYPE":"Debug","ATLAS_SANITIZER":"thread"}}
+  ],
+  "buildPresets":[{"name":"release","configurePreset":"release"},{"name":"asan","configurePreset":"asan"},{"name":"tsan","configurePreset":"tsan"}],
+  "testPresets":[{"name":"release","configurePreset":"release","output":{"outputOnFailure":true}},{"name":"asan","configurePreset":"asan","output":{"outputOnFailure":true}},{"name":"tsan","configurePreset":"tsan","output":{"outputOnFailure":true}}]
+}

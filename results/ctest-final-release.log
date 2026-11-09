@@ -1,0 +1,9 @@
+Test project /home/huanyuxun/atlas-codex-20261030/build
+    Start 1: unit
+1/2 Test #1: unit .............................   Passed    0.01 sec
+    Start 2: integration
+2/2 Test #2: integration ......................   Passed    2.64 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   2.64 sec
